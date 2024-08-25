@@ -1,43 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Slider from 'react-slick';
 import './Home.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
-  const games = [
-    { id: 1, title: 'The Witcher 3', image: '/assets/witcher3.jpg', rating: 4.8 },
-    { id: 2, title: 'Cyberpunk 2077', image: '/assets/cyberpunk.jpg', rating: 4.3 },
-    { id: 3, title: 'Red Dead Redemption 2', image: '/assets/rdr2.jpg', rating: 4.9 },
-    { id: 4, title: 'God of War', image: '/assets/godofwar.jpg', rating: 4.7 },
-    { id: 5, title: 'Horizon Zero Dawn', image: '/assets/horizon.jpg', rating: 4.5 },
-    { id: 6, title: 'Elden Ring', image: '/assets/eldenring.jpg', rating: 4.8 },
-    { id: 7, title: 'Minecraft', image: '/assets/minecraft.jpg', rating: 4.6 },
-    { id: 8, title: 'Fortnite', image: '/assets/fortnite.jpg', rating: 4.3 },
-    { id: 9, title: 'Among Us', image: '/assets/amongus.jpg', rating: 4.2 },
-    { id: 10, title: 'Apex Legends', image: '/assets/apex.jpg', rating: 4.4 },
-    { id: 11, title: 'The Last of Us Part II', image: '/assets/lastofus2.jpg', rating: 4.5 },
-    { id: 12, title: 'Ghost of Tsushima', image: '/assets/ghostoftsushima.jpg', rating: 4.7 },
-    { id: 13, title: 'Death Stranding', image: '/assets/deathstranding.jpg', rating: 4.3 },
-    { id: 14, title: 'Sekiro', image: '/assets/sekiro.jpg', rating: 4.6 },
-    { id: 15, title: 'Doom Eternal', image: '/assets/doometernal.jpg', rating: 4.4 },
-    { id: 16, title: 'Overwatch', image: '/assets/overwatch.jpg', rating: 4.5 },
-    { id: 17, title: 'Valorant', image: '/assets/valorant.jpg', rating: 4.2 },
-    { id: 18, title: 'Genshin Impact', image: '/assets/genshin.jpg', rating: 4.3 },
-    { id: 19, title: 'League of Legends', image: '/assets/league.jpg', rating: 4.1 },
-    { id: 20, title: 'PUBG', image: '/assets/pubg.jpg', rating: 4.4 },
-  ];
+  const [games, setGames] = useState([]);
+
+  // RAWG API key
+  const apiKey = 'e20bc2c9b0634e63adb9e384d87524c3'; // Replace with your API key
+
+  // Fetch games data from RAWG API
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const response = await axios.get(`https://api.rawg.io/api/games?key=${apiKey}&page_size=20`);
+        setGames(response.data.results);
+      } catch (error) {
+        console.error('Error fetching data from RAWG API', error);
+      }
+    };
+    
+    fetchGames();
+  }, []);
 
   // Slider settings with autoplay enabled
   const settings = {
     dots: true,
     infinite: true,
-    speed: 700,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,              // Enable autoplay
-    autoplaySpeed: 1500,         // Time between slides (in milliseconds)
-    pauseOnHover: true,          // Pause the autoplay on hover
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -71,9 +68,9 @@ const Home = () => {
         <Slider {...settings}>
           {games.map((game) => (
             <div className="game-card" key={game.id}>
-              <img src={game.image} alt={game.title} className="game-image" />
+              <img src={game.background_image} alt={game.name} className="game-image" />
               <div className="game-info">
-                <h3>{game.title}</h3>
+                <h3>{game.name}</h3>
                 <p>Rating: {game.rating}</p>
               </div>
             </div>
