@@ -1,1 +1,1 @@
-export const DB_NAME="Chat"
+export const DB_NAME="GameChat"
