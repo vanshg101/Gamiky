@@ -1,6 +1,6 @@
 import React, { useState,useEffect  } from 'react'
 import './App.css'
-import initializeLogout from '../initializeLogout'
+// import initializeLogout from '../initializeLogout'
 import {Sidebar,Extra} from './pages/Pindex'
 import {Outlet} from "react-router-dom"
 
