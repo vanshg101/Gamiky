@@ -4,6 +4,9 @@ import Login from "./Login";
 // import MyPost from "./MyPost"
 import Sidebar from "./Sidebar";
 import Extra from "./Extra";
+import GameDetails from "./GameDetails";
+import GameList from "./GameList";
+import Profile from "./Profile";
 
 export{
     Home,
@@ -11,5 +14,8 @@ export{
     Signup,
     Login,
     // MyPost,
-    Sidebar
+    Sidebar,
+    GameDetails,
+    GameList,
+    Profile,
 }

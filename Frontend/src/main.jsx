@@ -4,9 +4,9 @@ import store from './store/store.js'
 import App from './App.jsx'
 import './index.css'
 // import EditPost from './components/EditPost.jsx'
-import {Home,Login,Signup} from './pages/Pindex.js'
+import {Home,Login,Signup,GameDetails,GameList,Profile} from './pages/Pindex.js'
 // import My from './pages/My.jsx'
-// import Post from './components/Post.jsx'
+//import Post from './components/Post.jsx'
 import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -27,14 +27,26 @@ const router = createBrowserRouter([
             path:'/signup',
             element:<Signup/>
           },
+          {
+            path:'/game/:id',
+            element:<GameDetails/>
+          },
+          {
+            path:'/games',
+            element:<GameList/>
+          },
+          {
+            path:'/profile',
+            element:<Profile/>
+          },
           // {
           //   path:'/mypost',
           //   element:<MyPost/>
           // },
-          // {
-          //   path:"/post/:postId", 
-          //   element:<Post />
-          // },
+          {
+        //    path:"/post/:postId", 
+       //     element:<Post />
+          },
           // {
           //   path:"/edit-post/:postId", 
           //   element:<EditPost />

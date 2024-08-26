@@ -1,4 +1,7 @@
+// src/Home.jsx
+
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import axios from 'axios';
 import Slider from 'react-slick';
 import './Home.css';
@@ -29,21 +32,21 @@ const Home = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 3,
+    speed: 900,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 300,
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1000,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
         },
@@ -58,7 +61,9 @@ const Home = () => {
         <div className="hero-content">
           <h1>Welcome to Gamikkky</h1>
           <p>Discover, track, and share your favorite games with the community.</p>
-          <button className="cta-button">Explore Games</button>
+          <Link to="/games">
+            <button className="cta-button">Explore Games</button>
+          </Link>
         </div>
       </section>
 
@@ -68,11 +73,14 @@ const Home = () => {
         <Slider {...settings}>
           {games.map((game) => (
             <div className="game-card" key={game.id}>
-              <img src={game.background_image} alt={game.name} className="game-image" />
-              <div className="game-info">
-                <h3>{game.name}</h3>
-                <p>Rating: {game.rating}</p>
-              </div>
+              {/* Wrap the game card in a Link to navigate to the game details page */}
+              <Link to={`/game/${game.id}`}>
+                <img src={game.background_image} alt={game.name} className="game-image" />
+                <div className="game-info">
+                  <h3>{game.name}</h3>
+                  <p>Rating: {game.rating}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </Slider>
@@ -82,7 +90,7 @@ const Home = () => {
       <section className="community-section">
         <h2>Join the Conversation</h2>
         <p>Engage with fellow gamers, write reviews, and discover new favorites.</p>
-        <button className="cta-button">Join Now</button>
+        <button className="cta-button">Join Now</button> 
       </section>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Login.css";
 
 function Login() {
@@ -6,6 +7,9 @@ function Login() {
 
   const toggle = () => {
     setIsSignIn(!isSignIn);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
   };
 
   useEffect(() => {
@@ -25,6 +29,19 @@ function Login() {
       container.classList.add('sign-in');
     }, 200);
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const endpoint = isSignIn ? '/api/auth/login' : '/api/auth/register';
+      const data = isSignIn ? { email, password } : { email, password, username };
+      const response = await axios.post(endpoint, data);
+      console.log(response.data);
+      // Store token and navigate to the dashboard
+    } catch (error) {
+      console.error(error.response.data.msg);
+    }
+  };
 
   return (
     <div id="container" className="container">
@@ -50,7 +67,7 @@ function Login() {
                 <i className="bx bxs-lock-alt" />
                 <input type="password" placeholder="Confirm password" />
               </div>
-              <button>Sign up</button>
+             <button>Sign up</button>
               <p>
                 <span>Already have an account?</span>
                 <b onClick={toggle} className="pointer">
@@ -73,7 +90,7 @@ function Login() {
                 <i className="bx bxs-lock-alt" />
                 <input type="password" placeholder="Password" />
               </div>
-              <button>Sign in</button>
+             <button>Sign in</button>
               <p>
                 <b>Forgot password?</b>
               </p>
