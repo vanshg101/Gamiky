@@ -1,10 +1,14 @@
 import React from 'react';
 import './Sidebar.css';
 import { FaHome, FaUser, FaGamepad, FaForumbee, FaCog } from 'react-icons/fa';
-import TrendingGames from './TrendingGames'; // Import the new component
-import pp from '../assets/aayush.jpg'
+import TrendingGames from './TrendingGames';
+import pp from '../assets/aayush.jpg';
+import LogoutBtn from "../components/LogoutBtn";
+import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
+  const authStatus = useSelector((state) => state.auth.status);
+
   return (
     <div className="sidebar">
       <div className="profile-section">
@@ -38,16 +42,24 @@ const Sidebar = () => {
               <span>Forum</span>
             </a>
           </li>
-          <li>
-            <a href="/login">
-              <FaCog className="icon" />
-              <span>Login</span>
-            </a>
-          </li>
+          {authStatus ? (
+            <li>
+              <div className="icon">
+                <LogoutBtn />
+              </div>
+            </li>
+          ) : (
+            <li>
+              <a href="/login">
+                <FaCog className="icon" />
+                <span>Login</span>
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
       <div className="sidebar-footer">
-        <TrendingGames /> {/* Add the TrendingGames component */}
+        <TrendingGames />
       </div>
     </div>
   );
