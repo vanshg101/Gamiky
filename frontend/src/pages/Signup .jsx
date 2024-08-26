@@ -10,36 +10,35 @@ function Signup() {
   const navigate = useNavigate()
   const [error, setError] = useState("")
   const dispatch = useDispatch()
-  const {register, handleSubmit} = useForm()
+  const { register, handleSubmit } = useForm()
 
-  const create = async(data) => {
-      setError("")
-      try {
-          const userData = await authService.createAccount(data)
-          if (userData) {
-              const userData = await authService.getCurrentUser()
-              if(userData) dispatch(login(userData));
-              navigate("/")
-          }
-      } catch (error) {
-          setError(error.message)
+  const create = async (data) => {
+    setError("")
+    try {
+      const userData = await authService.createAccount(data)
+      if (userData) {
+        const userData = await authService.getCurrentUser()
+        if (userData) dispatch(login(userData));
+        navigate("/")
       }
+    } catch (error) {
+      setError(error.message)
+    }
   }
-
   return (
-    <div className="flex mr-32  ">
+    <div className="flex mr-32 items-center justify-center ">
       <div
-        className={`mx-auto mt-36 max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
+        className={`mx-auto mt-36 max-w-lg bg-gray-400 rounded-xl p-10 border border-black/10 `}
       >
         <div className="mb-2 flex justify-center"></div>
-        <h2 className="text-center text-2xl font-bold leading-tight">
+        <h2 className="text-center text-3xl font-bold leading-tight text-white">
           Sign up to create account
         </h2>
-        <p className="mt-2 text-center text-base text-black/60">
+        <p className="mt-2 text-center text-base text-black/90">
           Already have an account?&nbsp;
           <Link
             to="/login"
-            className="font-medium text-primary transition-all duration-200 hover:underline"
+            className="font-medium text-primary transition-all duration-200 hover:underline text-red-500"
           >
             Sign In
           </Link>
@@ -63,7 +62,7 @@ function Signup() {
                 required: true,
                 validate: {
                   matchPatern: (value) =>
-                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    /^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})+$/.test(value) ||
                     "Email address must be a valid address",
                 },
               })}
@@ -85,7 +84,7 @@ function Signup() {
             /> */}
             <button
               type="submit"
-              className="w-36 rounded-lg h-7 text-white  bg-blue-600"
+              className="w-36 rounded-lg h-7 text-white bg-red-500 bg-white-200 "
             >
               Create Account
             </button>

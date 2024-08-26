@@ -96,19 +96,6 @@ const Profile = () => {
         </div>
       </section>
 
-      {/* Friends List Section */}
-      <section className="friends-list">
-        <h2>Friends</h2>
-        <div className="friends-grid">
-          {/* Loop through the user's friends */}
-          <div className="friend-card">
-            <img src="https://via.placeholder.com/100" alt="Friend" />
-            <p>@friend_name</p>
-          </div>
-          {/* More friends can be added */}
-        </div>
-      </section>
-
       {/* Settings Section */}
       <section className="settings">
         <h2>Settings</h2>
