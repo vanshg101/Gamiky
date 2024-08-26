@@ -1,24 +1,23 @@
-import React from 'react'
-import {useDispatch} from 'react-redux'
-import authService from '../apppwrite/auth'
-import { logout } from '../store/authSlice'
-// import { removePost } from '../store/postSlice'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import authService from '../appwrite/auth';
+import { logout } from '../store/authSlice';
 
 function LogoutBtn() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const logoutHandler = () => {
         authService.logout().then(() => {
-          //  check oreder of removePost and logoutPost
-            // dispatch(removePost())
-            dispatch(logout())
-        })
-    }
-  return (
-    <button
-    onClick={logoutHandler}
-    >Logout</button>
-  )
+            dispatch(logout());
+            navigate('/login'); // Navigate to the login page
+        });
+    };
+
+    return (
+        <button onClick={logoutHandler}>Logout</button>
+    );
 }
 
-export default LogoutBtn
+export default LogoutBtn;
