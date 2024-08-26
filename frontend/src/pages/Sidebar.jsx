@@ -1,7 +1,6 @@
 import React from 'react';
 import './Sidebar.css';
 import { FaHome, FaUser, FaGamepad, FaForumbee, FaCog } from 'react-icons/fa';
-import TrendingGames from './TrendingGames'; // Import the new component
 import pp from '../assets/aayush.jpg'
 
 const Sidebar = () => {
@@ -47,7 +46,6 @@ const Sidebar = () => {
         </ul>
       </nav>
       <div className="sidebar-footer">
-        <TrendingGames /> {/* Add the TrendingGames component */}
       </div>
     </div>
   );
