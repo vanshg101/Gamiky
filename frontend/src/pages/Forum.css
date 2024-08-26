@@ -1,36 +1,40 @@
 /* General Styles */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #1a1a1a;
+  background-color: #121212;
   color: #e0e0e0;
   margin: 0;
   padding: 0;
 }
 
 .forum-page {
-  max-width: 800px;
-  margin: 20px auto;
+  /* max-width: 800px;
+  margin: 20px auto; */
+  margin-top: 1%;
+  margin-left: 18%;
+  width: 80%;
   padding: 20px;
-  background-color: #2c2c2c;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
+  background-color: #1e1e1e;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
 }
 
 /* New Post Button */
 .new-post-btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 24px;
   margin-bottom: 20px;
-  background-color: #ff4500;
+  background-color: #ff5722;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .new-post-btn:hover {
-  background-color: #e03e00;
+  background-color: #e64a19;
+  transform: scale(1.05);
 }
 
 /* Form Styles */
@@ -44,29 +48,30 @@ body {
 .new-post-form input,
 .new-post-form textarea,
 .reply-form textarea {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 12px;
+  padding: 12px;
   font-size: 16px;
-  border: 1px solid #444;
-  border-radius: 5px;
-  background-color: #333;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background-color: #2a2a2a;
   color: #e0e0e0;
 }
 
 .new-post-form button,
 .reply-form button {
-  padding: 10px 20px;
-  background-color: #28a745;
+  padding: 12px 24px;
+  background-color: #e95e0e;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .new-post-form button:hover,
 .reply-form button:hover {
-  background-color: #218838;
+  background-color: #974107;
+  transform: scale(1.05);
 }
 
 /* Post List Styles */
@@ -76,58 +81,60 @@ body {
 }
 
 .post-card {
-  border: 1px solid #444;
+  border: 1px solid #333;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #2c2c2c;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .post-card:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  transform: scale(1.02);
 }
 
 .post-card h2 {
   margin: 0;
-  color: #ff4500;
+  color: #ff5722;
 }
 
 .post-card p {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .post-card .tag {
   display: inline-block;
-  padding: 5px 10px;
-  background-color: #ff4500;
+  padding: 6px 12px;
+  background-color: #582312;
   color: #fff;
-  border-radius: 5px;
-  font-size: 12px;
+  border-radius: 6px;
+  font-size: 14px;
   margin-top: 10px;
 }
 
 /* Post Actions */
 .post-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-top: 10px;
 }
 
 .post-actions button {
-  padding: 5px 10px;
-  background-color: #ff4500;
+  padding: 6px 12px;
+  background-color: #ff5722;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .post-actions button:hover {
-  background-color: #e03e00;
+  background-color: #e64a19;
+  transform: scale(1.05);
 }
 
 /* Post Details */
@@ -139,7 +146,7 @@ body {
   max-width: 100%;
   height: auto;
   margin-top: 10px;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 /* Replies */
@@ -148,11 +155,11 @@ body {
 }
 
 .reply {
-  border-top: 1px solid #444;
+  border-top: 1px solid #333;
   padding-top: 10px;
   margin-top: 10px;
 }
 
 .reply p {
-  margin: 5px 0;
+  margin: 10px 0;
 }
