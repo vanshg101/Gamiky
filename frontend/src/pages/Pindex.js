@@ -7,6 +7,7 @@ import Extra from "./Extra";
 import GameDetails from "./GameDetails";
 import GameList from "./GameList";
 import Profile from "./Profile";
+import Forum from "./Forum";
 
 export{
     Home,
@@ -18,4 +19,5 @@ export{
     GameDetails,
     GameList,
     Profile,
+    Forum
 }

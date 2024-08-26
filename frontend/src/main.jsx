@@ -4,7 +4,7 @@ import store from './store/store.js'
 import App from './App.jsx'
 import './index.css'
 // import EditPost from './components/EditPost.jsx'
-import {Home,Login,Signup,GameDetails,GameList,Profile} from './pages/Pindex.js'
+import {Home,Login,Signup,GameDetails,GameList,Profile,Forum} from './pages/Pindex.js'
 // import My from './pages/My.jsx'
 //import Post from './components/Post.jsx'
 import { Provider } from 'react-redux'
@@ -35,6 +35,11 @@ const router = createBrowserRouter([
             path:'/games',
             element:<GameList/>
           },
+          {
+            path:'/forum',
+            element:<Forum/>
+          },
+          
           {
             path:'/profile',
             element:<Profile/>
